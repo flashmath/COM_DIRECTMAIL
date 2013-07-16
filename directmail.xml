@@ -1,1 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.1.0" method="upgrade">
+         <name>Direct Mail</name>
+        <!-- The following elements are optional and free of formatting constraints -->
+        <creationDate>Juillet 2013</creationDate>
+        <author>Charlemagne Fabrice</author>
+        <authorEmail>flash_math@yahoo.fr</authorEmail>
+        <copyright>Copyright Info</copyright>
+        <license>License Info</license>
+        <!--  The version string is recorded in the components table -->
+        <version>0.0.1</version>
+        <!-- The description is optional and defaults to the name -->
+        <description>COM_DIRECTMAIL_XML_DESCRIPTION</description>
+ 
+        <administration>
+                <languages folder="admin">
+					<language tag="en-GB">language/en-GB.com_directmail.ini</language>
+					<language tag="en-GB">language/en-GB.com_directmail.sys.ini</language>
+					<language tag="fr-FR">language/fr-FR.com_directmail.ini</language>
+					<language tag="fr-FR">language/fr-FR.com_directmail.sys.ini</language>
+				</languages>
+        </administration>
+ 
+</extension>
