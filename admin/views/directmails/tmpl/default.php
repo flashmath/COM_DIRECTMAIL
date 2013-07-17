@@ -15,8 +15,7 @@ JHtml::_('formbehavior.chosen', 'select');
 
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
-/*$listOrder="";
-$listDirn="";*/
+
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_directmail&view=directmailss'); ?>" method="post" name="adminForm" id="adminForm">
 <?php
@@ -32,13 +31,13 @@ if (!empty( $this->sidebar)) : ?>
 	<thead>
       	<tr>
         	<th width="1%" class="nowrap center hidden-phone">
-						<?php // echo JHtml::_('grid.sort', '<i class="icon-menu-2"></i>', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
+						<?php  echo JHtml::_('grid.sort', '<i class="icon-menu-2"></i>', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
 			</th>
             <th width="1%" class="hidden-phone">
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 			</th>
             <th>
-				<?php // echo JHtml::_('grid.sort', 'COM_DIRECTMAIL_HEADING_NAME', 'name', $listDirn, $listOrder); ?>
+				<?php  echo JHtml::_('grid.sort', 'COM_DIRECTMAIL_HEADING_NAME', 'name', $listDirn, $listOrder); ?>
 			</th>
         </tr>
         
@@ -46,7 +45,7 @@ if (!empty( $this->sidebar)) : ?>
     <tfoot>
 				<tr>
 					<td colspan="3">
-						<?php // echo $this->pagination->getListFooter(); ?>
+						<?php  echo $this->pagination->getListFooter(); ?>
 					</td>
 				</tr>
 			</tfoot>
