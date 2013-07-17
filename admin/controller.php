@@ -29,7 +29,6 @@ defined('_JEXEC') or die;
 	 */
 	 public function display($cachable = false, $urlparams = false)
 	{
-		echo 'display controller';
 		$view   = $this->input->get('view', 'directmails');
 		//$layout = $this->input->get('layout', 'default');
 		//$id     = $this->input->getInt('id');

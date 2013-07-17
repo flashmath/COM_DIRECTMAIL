@@ -19,7 +19,7 @@ defined('_JEXEC') or die();
  * @subpackage  com_directmail
  * @since       3.1
  */
-class DirectmailModelDirectmails extends JModelList
+class DirectmailsModelDirectmails extends JModelList
 {
         /**
          * Method to build an SQL query to load the list data.
@@ -28,7 +28,6 @@ class DirectmailModelDirectmails extends JModelList
          */
         protected function getListQuery()
         {
-			echo 'display model';
                 // Create a new query object.           
                 $db = JFactory::getDBO();
                 $query = $db->getQuery(true);

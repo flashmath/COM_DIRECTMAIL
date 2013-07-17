@@ -28,14 +28,13 @@ class DirectmailsViewDirectmails extends JViewLegacy{
 	 * @since   3.1
 	 */
 	public function display($tpl=null){
-		echo 'display view';
 		$items = $this->get('Items');
         $pagination = $this->get('Pagination');
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{
-			JError::raiseError(499, implode("\n", $errors));
+			JError::raiseError(500, implode("\n", $errors));
 			return false;
 		}
 		// Assign data to the view
