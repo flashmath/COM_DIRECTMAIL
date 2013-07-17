@@ -40,11 +40,20 @@ class DirectmailsViewDirectmails extends JViewLegacy{
 		// Assign data to the view
                 $this->items = $items;
                 $this->pagination = $pagination;
- 
+ 				
+				// Set the toolbar
+                $this->addToolBar();
+				
                 // Display the template
 				parent::display($tpl);
 
 	}
+	
+	public function addToolBar(){
+		JToolBarHelper::title(JText::_('COM_DIRECTMAIL_MANAGER_DIRECTMAILS'));
+
+	}
+	
 }
  
 ?>
