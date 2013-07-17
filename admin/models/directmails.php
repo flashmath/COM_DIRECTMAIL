@@ -19,7 +19,7 @@ defined('_JEXEC') or die();
  * @subpackage  com_directmail
  * @since       3.1
  */
-class DirectmailsModelDirectmails extends JModelList
+class DirectmailModelDirectmails extends JModelList
 {
 	
 	public function __construct($config = array())

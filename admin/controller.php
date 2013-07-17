@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  com_directmail
  * @since       3.1
  */
- class DirectmailsController extends JControllerLegacy{
+ class DirectmailController extends JControllerLegacy{
  
  	/**
 	 * Method to display a view.

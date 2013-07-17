@@ -6,7 +6,7 @@ defined('_JEXEC') or die();
 //jimport('joomla.application.component.controller');
  
 // Get an instance of the controller prefixed by HelloWorld
-$controller = JControllerLegacy::getInstance('Directmails');
+$controller = JControllerLegacy::getInstance('Directmail');
  
 // Get the task
 $jinput = JFactory::getApplication()->input;
