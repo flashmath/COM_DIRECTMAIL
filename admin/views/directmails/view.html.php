@@ -59,7 +59,23 @@ class DirectmailsViewDirectmails extends JViewLegacy{
 		require_once JPATH_COMPONENT.'/helpers/directmail.php';
 		
 		JToolBarHelper::title(JText::_('COM_DIRECTMAIL_MANAGER_DIRECTMAILS'));
+    	JToolBarHelper::addNew('directmail.add');
 
+	}
+	
+	/**
+	 * Returns an array of fields the table can be sorted by
+	 *
+	 * @return  array  Array containing the field name to sort by as the key and display text as value
+	 *
+	 * @since   3.1
+	 */
+	protected function getSortFields()
+	{
+		return array(
+			'ordering' => JText::_('JGRID_HEADING_ORDERING'),
+			'name' => JText::_('COM_DIRECTMAIL_HEADING_NAME')
+		);
 	}
 	
 }

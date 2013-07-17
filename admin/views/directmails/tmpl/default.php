@@ -16,6 +16,7 @@ JHtml::_('formbehavior.chosen', 'select');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
 
+$sortFields = $this->getSortFields();
 ?>
 <script type="text/javascript">
 	Joomla.orderTable = function()
@@ -34,7 +35,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		Joomla.tableOrdering(order, dirn, '');
 	}
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_directmail&view=directmailss'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_directmail&view=directmails'); ?>" method="post" name="adminForm" id="adminForm">
 <?php
 if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
@@ -66,7 +67,16 @@ if (!empty( $this->sidebar)) : ?>
 					<option value="asc" <?php if ($listDirn == 'asc') echo 'selected="selected"'; ?>><?php echo JText::_('JGLOBAL_ORDER_ASCENDING');?></option>
 					<option value="desc" <?php if ($listDirn == 'desc') echo 'selected="selected"'; ?>><?php echo JText::_('JGLOBAL_ORDER_DESCENDING');?></option>
 				</select>
-	</div>        
+	</div>
+    
+    <div class="btn-group pull-right">
+				<label for="sortTable" class="element-invisible"><?php echo JText::_('JGLOBAL_SORT_BY');?></label>
+				<select name="sortTable" id="sortTable" class="input-medium" onchange="Joomla.orderTable()">
+					<option value=""><?php echo JText::_('JGLOBAL_SORT_BY');?></option>
+					<?php echo JHtml::_('select.options', $sortFields, 'value', 'text', $listOrder);?>
+				</select>
+	</div>
+                    
 </div>
 <div class="clearfix"></div>
 
@@ -96,7 +106,11 @@ if (!empty( $this->sidebar)) : ?>
             
             </tbody>
 </table>
-</div>
+		<input type="hidden" name="task" value="" />
+		<input type="hidden" name="boxchecked" value="0" />
 		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
         <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+        <?php echo JHtml::_('form.token'); ?>
+</div>
+    	
 </form>
