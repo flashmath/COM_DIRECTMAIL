@@ -21,6 +21,19 @@ defined('_JEXEC') or die();
  */
 class DirectmailsModelDirectmails extends JModelList
 {
+	
+	public function __construct($config = array())
+	{
+		/*if (empty($config['filter_fields']))
+		{
+			$config['filter_fields'] = array(
+				'id', 
+				'name'				
+			);
+		}*/
+
+		parent::__construct($config);
+	}
         /**
          * Method to build an SQL query to load the list data.
          *
@@ -35,6 +48,19 @@ class DirectmailsModelDirectmails extends JModelList
                 $query->select('id');
                 // From the hello table
                 $query->from('#__directmail');
+				
+				// Add the list ordering clause.
+				/*$orderCol = $this->state->get('list.ordering', 'ordering');
+				$orderDirn = $this->state->get('list.direction', 'ASC');
+				if ($orderCol == 'ordering'){
+				  $orderCol='name';
+				}
+				$query->order($db->escape($orderCol.' '.$orderDirn));*/
+				
                 return $query;
         }
+		
+		protected function populateState($ordering = null, $direction = null) {
+        	parent::populateState('name', 'ASC');
+		}
 }
