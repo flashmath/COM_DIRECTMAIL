@@ -18,6 +18,7 @@ defined('_JEXEC') or die;
  */
 class DirectmailsViewDirectmails extends JViewLegacy{
 	
+	protected $state;
 	/**
 	 * Method to display the view.
 	 *
@@ -30,9 +31,9 @@ class DirectmailsViewDirectmails extends JViewLegacy{
 	public function display($tpl=null){
 		$items = $this->get('Items');
         $pagination = $this->get('Pagination');
-		$state = $this->get('State');
-		$this->sortDirection = $state->get('list.direction');
-        $this->sortColumn = $state->get('list.ordering');
+		/*$this->state = $this->get('State');
+		$this->sortDirection = $his->state->get('list.direction');
+        $this->sortColumn = $this->state->get('list.ordering');*/
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))

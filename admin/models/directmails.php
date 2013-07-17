@@ -50,12 +50,12 @@ class DirectmailsModelDirectmails extends JModelList
                 $query->from('#__directmail');
 				
 				// Add the list ordering clause.
-				/*$orderCol = $this->state->get('list.ordering', 'ordering');
+				$orderCol = $this->state->get('list.ordering', 'ordering');
 				$orderDirn = $this->state->get('list.direction', 'ASC');
 				if ($orderCol == 'ordering'){
 				  $orderCol='name';
 				}
-				$query->order($db->escape($orderCol.' '.$orderDirn));*/
+				$query->order($db->escape($orderCol.' '.$orderDirn));
 				
                 return $query;
         }
