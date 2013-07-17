@@ -31,9 +31,8 @@ class DirectmailsViewDirectmails extends JViewLegacy{
 	public function display($tpl=null){
 		$items = $this->get('Items');
         $pagination = $this->get('Pagination');
-		/*$this->state = $this->get('State');
-		$this->sortDirection = $his->state->get('list.direction');
-        $this->sortColumn = $this->state->get('list.ordering');*/
+		$this->state = $this->get('State');
+		
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
