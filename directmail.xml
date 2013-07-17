@@ -8,7 +8,7 @@
         <copyright>Copyright Info</copyright>
         <license>License Info</license>
         <!--  The version string is recorded in the components table -->
-        <version>0.0.7</version>
+        <version>0.0.8</version>
         <!-- The description is optional and defaults to the name -->
         <description>COM_DIRECTMAIL_XML_DESCRIPTION</description>
 		
@@ -39,7 +39,9 @@
 					<filename>index.html</filename>
 					<filename>controller.php</filename>
 					<filename>directmail.php</filename>
-					<folder>sql</folder>					
+					<folder>sql</folder>
+					<folder>models</folder>
+					<folder>views</folder>					
 				</files>
                 <languages folder="admin">
 					<language tag="en-GB">language/en-GB/en-GB.com_directmail.ini</language>
