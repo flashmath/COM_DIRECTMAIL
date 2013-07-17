@@ -10,15 +10,21 @@
 defined('_JEXEC') or die;
 
 /**
- * View class for a list of directmails.
+ * View class for an item of directmail.
  *
  * @package     Joomla.Administrator
- * @subpackage  com_directmails
+ * @subpackage  com_directmail
  * @since       3.1
  */
 class DirectmailViewDirectmail extends JViewLegacy{
-/**
-         * display method of Hello view
+        protected $form;
+
+		protected $item;
+
+		protected $state;
+	
+		/**
+         * display method of Direct Mail
          * @return void
          */
         public function display($tpl = null) 
@@ -26,7 +32,8 @@ class DirectmailViewDirectmail extends JViewLegacy{
                 // get the Data
                 $form = $this->get('Form');
                 $item = $this->get('Item');
- 
+ 				$state = $this->get('State');
+				
                 // Check for errors.
                 if (count($errors = $this->get('Errors'))) 
                 {
@@ -36,7 +43,8 @@ class DirectmailViewDirectmail extends JViewLegacy{
                 // Assign the Data
                 $this->form = $form;
                 $this->item = $item;
- 
+ 				$this->state = $state;
+				
  				// Set the toolbar
                 $this->addToolBar();
 
@@ -49,11 +57,15 @@ class DirectmailViewDirectmail extends JViewLegacy{
          */
         protected function addToolBar() 
         {
+			JFactory::getApplication()->input->set('hidemainmenu', true);
+			
                 $input = JFactory::getApplication()->input;
                 //$input->set('hidemainmenu', true);
                 $isNew = ($this->item->id == 0);
                 JToolBarHelper::title($isNew ? JText::_('COM_DIRECTMAIL_MANAGER_DIRECTMAIL_NEW')
                                              : JText::_('COM_DIRECTMAIL_MANAGER_DIRECTMAIL_EDIT'));
+											 
+				JToolbarHelper::cancel('directmail.cancel');
         }
 
 

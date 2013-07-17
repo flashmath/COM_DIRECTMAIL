@@ -18,5 +18,17 @@ defined('_JEXEC') or die();
  * @since       3.1
  */
  class DirectmailControllerDirectmail extends JControllerForm
-{
+{	
+	public function batch($model = null)
+	{
+		//JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+
+		// Set the model
+		$model	= $this->getModel('Directmail', '', array());
+
+		// Preset the redirect
+		$this->setRedirect(JRoute::_('index.php?option=com_directmail&view=directmails' . $this->getRedirectToListAppend(), false));
+
+		return parent::batch($model);
+	}
 }
