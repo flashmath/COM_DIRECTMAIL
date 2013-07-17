@@ -29,6 +29,7 @@ defined('_JEXEC') or die;
 	 */
 	 public function display($cachable = false, $urlparams = false)
 	{
+		require_once JPATH_COMPONENT.'/helpers/directmail.php';
 		$view   = $this->input->get('view', 'directmails');
 		//$layout = $this->input->get('layout', 'default');
 		//$id     = $this->input->getInt('id');

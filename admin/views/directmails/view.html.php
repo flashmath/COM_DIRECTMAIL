@@ -41,12 +41,12 @@ class DirectmailsViewDirectmails extends JViewLegacy{
                 $this->items = $items;
                 $this->pagination = $pagination;
  											
-				//DirectmailHelper::addSubmenu('directmails');
+				DirectmailHelper::addSubmenu('directmails');
 				
 				// Set the toolbar
                 $this->addToolBar();
 				
-				//$this->sidebar = JHtmlSidebar::render();
+				$this->sidebar = JHtmlSidebar::render();
                 // Display the template
 				parent::display($tpl);
 

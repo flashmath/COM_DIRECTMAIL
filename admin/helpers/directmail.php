@@ -33,5 +33,6 @@ class DirectmailHelper{
 			'index.php?option=com_directmail&view=directmails',
 			$vName == 'directmails'
 		);
+		
 	 }
 }
