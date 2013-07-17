@@ -7,16 +7,20 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
  
- // No direct access to this file
+// No direct access to this file
 defined('_JEXEC') or die();
+// import the Joomla modellist library
+//jimport('joomla.application.component.modellist');
 
 /**
- * directmail controller for a route.
+ * Methods supporting a list of directmail records.
  *
  * @package     Joomla.Administrator
  * @subpackage  com_directmail
  * @since       3.1
  */
- class DirectmailControllerDirectmail extends JControllerLegacy
+class DirectmailModelDirectmail extends JModelLegacy
 {
+
 }
+?>
