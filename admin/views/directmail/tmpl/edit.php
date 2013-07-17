@@ -14,9 +14,42 @@ JHtml::_('formbehavior.chosen', 'select');
 	}
 </script>
 <form action="<?php echo JRoute::_('index.php?option=com_directmail&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
-<?php
-echo 'test new';
-?>
+<div class="span12 form-horizontal">
+<fieldset>
+				<div class="control-group">
+					<div class="control-label">
+						<?php echo $this->form->getLabel('name'); ?>
+					</div>
+					<div class="controls">
+						<?php echo $this->form->getInput('name'); ?>
+					</div>
+				</div>
+                <div class="control-group">
+					<div class="control-label">
+						<?php echo $this->form->getLabel('answer'); ?>
+					</div>
+					<div class="controls">
+						<?php echo $this->form->getInput('answer'); ?>
+					</div>
+				</div>
+                <div class="control-group">
+					<div class="control-label">
+						<?php echo $this->form->getLabel('email'); ?>
+					</div>
+					<div class="controls">
+						<?php echo $this->form->getInput('email'); ?>
+					</div>
+				</div>
+                <div class="control-group">
+					<div class="control-label">
+						<?php echo $this->form->getLabel('id'); ?>
+					</div>
+					<div class="controls">
+						<?php echo $this->form->getInput('id'); ?>
+					</div>
+				</div>
+</fieldset>
+</div>
 <input type="hidden" name="task" value="" />
 	<?php echo JHtml::_('form.token'); ?>
 </form>
