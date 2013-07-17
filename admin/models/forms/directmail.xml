@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset>
+                <field
+                        name="id"
+                        type="hidden"
+                />
+                <field
+                        name="name"
+                        type="text"
+                        label="COM_DIRECTMAIL_DIRECTMAIL_NAME_LABEL"
+                        description="COM_DIRECTMAIL_DIRECTMAIL_NAME_DESC"
+                        size="25"
+                        class="inputbox"
+                        default=""
+                />
+				<field
+                        name="answer"
+                        type="text"
+                        label="COM_DIRECTMAIL_DIRECTMAIL_ANSWER_LABEL"
+                        description="COM_DIRECTMAIL_DIRECTMAIL_ANSWER_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                />
+				<field
+                        name="email"
+                        type="text"
+                        label="COM_DIRECTMAIL_DIRECTMAIL_EMAIL_LABEL"
+                        description="COM_DIRECTMAIL_DIRECTMAIL_EMAIL_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                />
+        </fieldset>
+</form>

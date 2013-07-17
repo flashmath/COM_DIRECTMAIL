@@ -17,6 +17,6 @@ defined('_JEXEC') or die();
  * @subpackage  com_directmail
  * @since       3.1
  */
- class DirectmailControllerDirectmail extends JControllerLegacy
+ class DirectmailControllerDirectmail extends JControllerForm
 {
 }
