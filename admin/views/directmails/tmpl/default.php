@@ -17,6 +17,23 @@ $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
 
 ?>
+<script type="text/javascript">
+	Joomla.orderTable = function()
+	{
+		table = document.getElementById("sortTable");
+		direction = document.getElementById("directionTable");
+		order = table.options[table.selectedIndex].value;
+		if (order != '<?php echo $listOrder; ?>')
+		{
+			dirn = 'asc';
+		}
+		else
+		{
+			dirn = direction.options[direction.selectedIndex].value;
+		}
+		Joomla.tableOrdering(order, dirn, '');
+	}
+</script>
 <form action="<?php echo JRoute::_('index.php?option=com_directmail&view=directmailss'); ?>" method="post" name="adminForm" id="adminForm">
 <?php
 if (!empty( $this->sidebar)) : ?>
@@ -27,6 +44,13 @@ if (!empty( $this->sidebar)) : ?>
 <?php else : ?>
 	<div id="j-main-container">
 <?php endif;?>
+<div id="filter-bar" class="btn-toolbar">
+	<div class="filter-search btn-group pull-left">
+				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_DIRECTMAIL_SEARCH_IN_TITLE');?></label>
+				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('COM_DIRECTMAIL_SEARCH_IN_TITLE'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_DIRECTMAIL_SEARCH_IN_TITLE'); ?>" />
+			</div>
+</div>
+<div class="clearfix"></div>
 <table class="table table-striped" id="articleList">
 	<thead>
       	<tr>
