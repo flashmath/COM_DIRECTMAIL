@@ -14,6 +14,7 @@
                         description="COM_DIRECTMAIL_DIRECTMAIL_NAME_DESC"
                         size="25"
                         class="inputbox"
+						required="true"
                         default=""
                 />
 				<field
@@ -23,6 +24,7 @@
                         description="COM_DIRECTMAIL_DIRECTMAIL_ANSWER_DESC"
                         size="40"
                         class="inputbox"
+						required="true"
                         default=""
                 />
 				<field
@@ -32,6 +34,7 @@
                         description="COM_DIRECTMAIL_DIRECTMAIL_EMAIL_DESC"
                         size="40"
                         class="inputbox"
+						required="true"
                         default=""
                 />
         </fieldset>
