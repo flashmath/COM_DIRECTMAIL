@@ -7,13 +7,13 @@ JHtml::_('formbehavior.chosen', 'select');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'directmail.cancel')
+		if (task == 'directmail.cancel'  || document.formvalidator.isValid(document.id('route-form')))
 		{
-			Joomla.submitform(task, document.getElementById('adminForm'));
+			Joomla.submitform(task, document.getElementById('route-form'));
 		}
 	}
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_directmail&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
+<form action="<?php echo JRoute::_('index.php?option=com_directmail&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="route-form" class="form-validate form-horizontal">
 <div class="span12 form-horizontal">
 <fieldset>
 				<div class="control-group">

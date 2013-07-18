@@ -29,11 +29,12 @@
                 />
 				<field
                         name="email"
-                        type="text"
+                        type="email"
                         label="COM_DIRECTMAIL_DIRECTMAIL_EMAIL_LABEL"
                         description="COM_DIRECTMAIL_DIRECTMAIL_EMAIL_DESC"
                         size="40"
                         class="inputbox"
+						validate="email"
 						required="true"
                         default=""
                 />

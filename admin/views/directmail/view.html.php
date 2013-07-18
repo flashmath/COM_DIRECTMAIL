@@ -65,7 +65,9 @@ class DirectmailViewDirectmail extends JViewLegacy{
                 JToolBarHelper::title($isNew ? JText::_('COM_DIRECTMAIL_MANAGER_DIRECTMAIL_NEW')
                                              : JText::_('COM_DIRECTMAIL_MANAGER_DIRECTMAIL_EDIT'));
 											 
-				JToolbarHelper::cancel('directmail.cancel');
+				JToolBarHelper::save('directmail.save');
+                JToolBarHelper::cancel('directmail.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+
         }
 
 
