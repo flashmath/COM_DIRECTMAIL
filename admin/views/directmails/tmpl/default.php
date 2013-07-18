@@ -103,7 +103,36 @@ if (!empty( $this->sidebar)) : ?>
 				</tr>
 			</tfoot>
             <tbody>
-            
+            	<?php foreach($this->items as $i => $item) :?>
+                	<tr class="row<?php echo $i % 2; ?>">
+                    	<td class="order nowrap center hidden-phone">
+                        	<span class="sortable-handler hasTooltip <?php echo $disableClassName?>" title="<?php echo $disabledLabel?>">
+							<i class="icon-menu"></i>
+						</span>
+						<input type="text" style="display:none" name="order[]" size="5"
+							value="<?php echo $item->ordering;?>" class="width-20 text-area-order " />
+                        </td>
+                        <td class="center hidden-phone">
+						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+						</td>
+                        <td class="nowrap has-context">
+						<div class="pull-left">
+							<a href="<?php echo JRoute::_('index.php?option=com_banners&task=banner.edit&id='.(int) $item->id); ?>">
+									<?php echo $this->escape($item->name); ?></a>
+                                    							
+						</div>
+						<div class="pull-left">
+							<?php
+								// Create dropdown items
+								JHtml::_('dropdown.edit', $item->id, 'directmail.');
+								
+								// render dropdown list
+								echo JHtml::_('dropdown.render');
+								?>
+						</div>
+					</td>
+                    </tr>
+                <?php endforeach;?>
             </tbody>
 </table>
 		<input type="hidden" name="task" value="" />

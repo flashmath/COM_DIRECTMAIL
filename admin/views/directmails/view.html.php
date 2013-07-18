@@ -19,6 +19,7 @@ defined('_JEXEC') or die;
 class DirectmailViewDirectmails extends JViewLegacy{
 	
 	protected $state;
+	protected $items;
 	/**
 	 * Method to display the view.
 	 *
