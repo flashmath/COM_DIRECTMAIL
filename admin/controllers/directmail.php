@@ -19,8 +19,20 @@ defined('_JEXEC') or die();
  */
  class DirectmailControllerDirectmail extends JControllerForm
 {	
+
+	protected function allowAdd($data = array()){
+		echo 'testAdd';
+		return true;
+	}
+	
+	protected function allowEdit($data = array(), $key = 'id'){
+		echo 'testEdit';
+		return true;
+	}
+	
 	public function batch($model = null)
 	{
+		echo 'testB';
 		//JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
 		// Set the model

@@ -45,7 +45,7 @@ class DirectmailModelDirectmails extends JModelList
                 $db = JFactory::getDBO();
                 $query = $db->getQuery(true);
                 // Select some fields
-                $query->select('id,name,answer,email');
+                $query->select('id,name,answer,email,checked_out,checked_out_time');
                 // From the hello table
                 $query->from('#__directmail');
 				

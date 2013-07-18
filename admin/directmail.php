@@ -7,11 +7,12 @@ defined('_JEXEC') or die();
  
 // Get an instance of the controller prefixed by HelloWorld
 $controller = JControllerLegacy::getInstance('Directmail');
- 
+
 // Get the task
 $jinput = JFactory::getApplication()->input;
+
 $task = $jinput->get('task', "", 'STR' );
- 
+
 // Perform the Request task
 $controller->execute($task);
 

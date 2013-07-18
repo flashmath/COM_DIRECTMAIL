@@ -117,7 +117,10 @@ if (!empty( $this->sidebar)) : ?>
 						</td>
                         <td class="nowrap has-context">
 						<div class="pull-left">
-							<a href="<?php echo JRoute::_('index.php?option=com_banners&task=banner.edit&id='.(int) $item->id); ?>">
+                          <?php if ($item->checked_out) : ?>
+								<?php echo JHtml::_('jgrid.checkedout', $i, 'test', $item->checked_out_time, 'directmails.', true); ?>
+							<?php endif; ?>
+							<a href="<?php echo JRoute::_('index.php?option=com_directmail&task=directmail.edit&id='.(int) $item->id); ?>">
 									<?php echo $this->escape($item->name); ?></a>
                                     							
 						</div>
