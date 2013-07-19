@@ -45,9 +45,16 @@ class DirectmailModelDirectmails extends JModelList
                 $db = JFactory::getDBO();
                 $query = $db->getQuery(true);
                 // Select some fields
-                $query->select('id,name,answer,email,checked_out,checked_out_time');
+                $query->select('a.id as id,a.name as name,a.answer as answer,a.email as email,a.checked_out as checked_out,a.checked_out_time as checked_out_time,a.catid as catid');
                 // From the hello table
-                $query->from('#__directmail');
+                $query->from('#__directmail AS a');
+				
+				$query->select('uc.name AS editor')
+			->join('LEFT', '#__users AS uc ON uc.id=a.checked_out');
+			
+			// Join over the categories.
+		$query->select('c.title AS category_title')
+			->join('LEFT', '#__categories AS c ON c.id = a.catid');
 				
 				// Add the list ordering clause.
 				$orderCol = $this->state->get('list.ordering', 'ordering');

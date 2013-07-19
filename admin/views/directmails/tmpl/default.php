@@ -13,6 +13,8 @@ JHtml::_('behavior.multiselect');
 JHtml::_('dropdown.init');
 JHtml::_('formbehavior.chosen', 'select');
 
+$user		= JFactory::getUser();
+$userId		= $user->get('id');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
 
@@ -103,7 +105,9 @@ if (!empty( $this->sidebar)) : ?>
 				</tr>
 			</tfoot>
             <tbody>
-            	<?php foreach($this->items as $i => $item) :?>
+            	<?php foreach($this->items as $i => $item) :
+					$canCheckin = $user->authorise('core.manage',     'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
+				?>
                 	<tr class="row<?php echo $i % 2; ?>">
                     	<td class="order nowrap center hidden-phone">
                         	<span class="sortable-handler hasTooltip <?php echo $disableClassName?>" title="<?php echo $disabledLabel?>">
@@ -118,7 +122,7 @@ if (!empty( $this->sidebar)) : ?>
                         <td class="nowrap has-context">
 						<div class="pull-left">
                           <?php if ($item->checked_out) : ?>
-								<?php echo JHtml::_('jgrid.checkedout', $i, 'test', $item->checked_out_time, 'directmails.', true); ?>
+								<?php echo JHtml::_('jgrid.checkedout', $i, 'test', $item->checked_out_time, 'directmails.', $canCheckin); ?>
 							<?php endif; ?>
 							<a href="<?php echo JRoute::_('index.php?option=com_directmail&task=directmail.edit&id='.(int) $item->id); ?>">
 									<?php echo $this->escape($item->name); ?></a>
