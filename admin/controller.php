@@ -31,8 +31,19 @@ defined('_JEXEC') or die;
 	{
 		require_once JPATH_COMPONENT.'/helpers/directmail.php';
 		$view   = $this->input->get('view', 'directmails');
-		//$layout = $this->input->get('layout', 'default');
-		//$id     = $this->input->getInt('id');
+		$layout = $this->input->get('layout', 'default');
+		$id     = $this->input->getInt('id');
+		
+		// Check for edit form.
+		if ($view == 'directmail' && $layout == 'edit' && !$this->checkEditId('com_directmail.edit.directmail', $id)) {
+
+			// Somehow the person just went to the form - we don't allow that.
+			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+			$this->setMessage($this->getError(), 'error');
+			$this->setRedirect(JRoute::_('index.php?option=com_directmails&view=directmails', false));
+
+			return false;
+		}
 		
 		$input = JFactory::getApplication()->input;
 		$input->set('view', $view);
