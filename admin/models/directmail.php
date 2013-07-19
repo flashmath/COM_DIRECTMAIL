@@ -73,6 +73,15 @@ class DirectmailModelDirectmail extends JModelAdmin
                 return $data;
         }
 
-
+		/**
+         * Method to check if it's OK to delete a message. Overwrites JModelAdmin::canDelete
+         */
+        protected function canDelete($record)
+        {
+            if( !empty( $record->id ) ){
+                $user = JFactory::getUser();
+                return $user->authorise( "core.delete", "com_directmail.route." . $record->id );
+            }
+        }
 }
 ?>

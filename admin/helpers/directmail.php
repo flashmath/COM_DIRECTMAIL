@@ -35,4 +35,46 @@ class DirectmailHelper{
 		);
 		
 	 }
+	 
+	 /**
+	 * Gets a list of the actions that can be performed.
+	 *
+	 * @param   integer  The category ID.
+	 *
+	 * @return  JObject
+	 * @since   1.6
+	 */
+	public static function getActions($categoryId = 0, $routeId = 0)
+	{
+		$user	= JFactory::getUser();
+		$result	= new JObject;
+
+		if (empty($categoryId) && empty($routeId))
+		{
+			$assetName = 'com_directmail';
+			$level = 'component';
+		}
+		elseif (empty($routeId))
+		{
+			$assetName = 'com_directmail.category.'.(int) $categoryId;
+			$level = 'category';
+		}
+		else
+		{
+			$assetName = 'com_directmail.route.'.(int) $routeId;
+			$level = 'route';
+		}
+
+		$actions = JAccess::getActionsFromFile(
+			JPATH_ADMINISTRATOR . '/components/com_directmail/access.xml',
+			"/access/section[@name='" . $level . "']/"
+		);
+
+		foreach ($actions as $action)
+		{
+			$result->set($action->name,	$user->authorise($action->name, $assetName));
+		}
+
+		return $result;
+	}
 }

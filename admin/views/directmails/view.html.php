@@ -59,8 +59,15 @@ class DirectmailViewDirectmails extends JViewLegacy{
 	public function addToolBar(){		
 		require_once JPATH_COMPONENT.'/helpers/directmail.php';
 		
+		$canDo = DirectmailHelper::getActions($this->state->get('filter.category_id'));
+		$user  = JFactory::getUser();
+		
 		JToolBarHelper::title(JText::_('COM_DIRECTMAIL_MANAGER_DIRECTMAILS'));
-    	JToolBarHelper::addNew('directmail.add');
+		
+		if ($canDo->get('core.create') || (count($user->getAuthorisedCategories('com_content', 'core.create'))) > 0 )
+		{
+    		JToolBarHelper::addNew('directmail.add');
+		}
 
 	}
 	
