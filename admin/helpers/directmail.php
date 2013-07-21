@@ -34,6 +34,15 @@ class DirectmailHelper{
 			$vName == 'directmails'
 		);
 		
+		 JHtmlSidebar::addEntry(JText::_('COM_DIRECTMAIL_SUBMENU_CATEGORIES'),
+                                         'index.php?option=com_categories&extension=com_directmail',
+                                         $vName == 'categories');
+
+		if ($vName == 'categories') 
+                {
+                        $document->setTitle(JText::_('COM_DIRECTMAIL_ADMINISTRATION_CATEGORIES'));
+                }
+
 	 }
 	 
 	 /**

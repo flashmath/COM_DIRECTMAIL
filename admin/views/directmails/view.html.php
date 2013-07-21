@@ -68,6 +68,27 @@ class DirectmailViewDirectmails extends JViewLegacy{
 		{
     		JToolBarHelper::addNew('directmail.add');
 		}
+		
+		if (($canDo->get('core.edit')) || ($canDo->get('core.edit.own')))
+		{
+			JToolbarHelper::editList('directmail.edit');
+		}
+		
+		if ($canDo->get('core.edit.state'))
+		{
+			JToolbarHelper::publish('directmails.publish', 'JTOOLBAR_PUBLISH', true);
+			JToolbarHelper::unpublish('directmails.unpublish', 'JTOOLBAR_UNPUBLISH', true);
+			JToolbarHelper::checkin('directmails.checkin');
+		}
+		
+		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
+		{
+			JToolbarHelper::deleteList('', 'directmails.delete', 'JTOOLBAR_EMPTY_TRASH');
+		}
+		elseif ($canDo->get('core.edit.state'))
+		{
+			JToolbarHelper::trash('directmails.trash');
+		}
 
 	}
 	

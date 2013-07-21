@@ -91,6 +91,9 @@ if (!empty( $this->sidebar)) : ?>
             <th width="1%" class="hidden-phone">
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 			</th>
+            <th width="1%" class="nowrap center">
+						<?php echo JHtml::_('grid.sort', 'JSTATUS', 'published', $listDirn, $listOrder); ?>
+					</th>
             <th>
 				<?php  echo JHtml::_('grid.sort', 'COM_DIRECTMAIL_HEADING_NAME', 'name', $listDirn, $listOrder); ?>
 			</th>
@@ -107,6 +110,7 @@ if (!empty( $this->sidebar)) : ?>
             <tbody>
             	<?php foreach($this->items as $i => $item) :
 					$canCheckin = $user->authorise('core.manage',     'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
+					$canChange  = $user->authorise('core.edit.state', 'com_directmail.category.' . $item->catid) && $canCheckin;
 				?>
                 	<tr class="row<?php echo $i % 2; ?>">
                     	<td class="order nowrap center hidden-phone">
@@ -119,20 +123,36 @@ if (!empty( $this->sidebar)) : ?>
                         <td class="center hidden-phone">
 						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
+                        <td class="center">
+						<?php echo JHtml::_('jgrid.published', $item->state, $i, 'directmail.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
+					</td>
                         <td class="nowrap has-context">
 						<div class="pull-left">
                           <?php if ($item->checked_out) : ?>
-								<?php echo JHtml::_('jgrid.checkedout', $i, 'test', $item->checked_out_time, 'directmails.', $canCheckin); ?>
+								<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'directmails.', $canCheckin); ?>
 							<?php endif; ?>
 							<a href="<?php echo JRoute::_('index.php?option=com_directmail&task=directmail.edit&id='.(int) $item->id); ?>">
 									<?php echo $this->escape($item->name); ?></a>
-                                    							
+                        <div class="small">
+								<?php echo $this->escape($item->category_title); ?>
+							</div>                                    							
 						</div>
 						<div class="pull-left">
 							<?php
 								// Create dropdown items
 								JHtml::_('dropdown.edit', $item->id, 'directmail.');
+								JHtml::_('dropdown.divider');
+								if ($item->state) :
+									JHtml::_('dropdown.unpublish', 'cb' . $i, 'directmail.');
+								else :
+									JHtml::_('dropdown.publish', 'cb' . $i, 'directmail.');
+								endif;
 								
+								JHtml::_('dropdown.divider');
+								
+								if ($item->checked_out) :
+									JHtml::_('dropdown.checkin', 'cb' . $i, 'directmail.');
+								endif;
 								// render dropdown list
 								echo JHtml::_('dropdown.render');
 								?>
