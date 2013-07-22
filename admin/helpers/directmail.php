@@ -18,6 +18,7 @@ defined('_JEXEC') or die;
  */
 class DirectmailHelper{
 	
+	public static $extension = 'com_directmail';
 	/**
 	 * Configure the Linkbar.
 	 *
@@ -28,6 +29,7 @@ class DirectmailHelper{
 	 */
 	 public static function addSubmenu($vName)
 	 {
+		 $document=JFactory::getDocument();
 		 JHtmlSidebar::addEntry(
 			JText::_('COM_DIRECTMAIL_SUBMENU_DIRECTMAILS'),
 			'index.php?option=com_directmail&view=directmails',
@@ -53,10 +55,11 @@ class DirectmailHelper{
 	 * @return  JObject
 	 * @since   1.6
 	 */
-	public static function getActions($categoryId = 0, $routeId = 0)
+	 public static function getActions($categoryId = 0, $routeId = 0)
 	{
 		$user	= JFactory::getUser();
 		$result	= new JObject;
+
 
 		if (empty($categoryId) && empty($routeId))
 		{
@@ -74,16 +77,35 @@ class DirectmailHelper{
 			$level = 'route';
 		}
 
+
 		$actions = JAccess::getActionsFromFile(
 			JPATH_ADMINISTRATOR . '/components/com_directmail/access.xml',
 			"/access/section[@name='" . $level . "']/"
 		);
 
+
+		if (!$actions){
+    		JError::raiseError(500, 'fichier inexistant');
+			return false;
+		}
+		
+			
 		foreach ($actions as $action)
 		{
 			$result->set($action->name,	$user->authorise($action->name, $assetName));
 		}
 
+		
+		/*$actions = array(
+			'core.admin', 'core.manage', 'core.create', 'core.edit', 'core.edit.own', 'core.edit.state', 'core.delete'
+		);
+
+		foreach ($actions as $action)
+		{
+			$result->set($action,	$user->authorise($action, $assetName));
+		}*/
+
 		return $result;
 	}
+	
 }

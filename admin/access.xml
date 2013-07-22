@@ -14,7 +14,7 @@
                 <action name="core.edit" title="JACTION_EDIT" description="COM_CATEGORIES_ACCESS_EDIT_DESC" />
                 <action name="core.edit.state" title="JACTION_EDITSTATE" description="COM_CATEGORIES_ACCESS_EDITSTATE_DESC" />
      </section>
-     <section name="route">
+	<section name="route">
                 <action name="core.delete" title="JACTION_DELETE" description="COM_DIRECTMAIL_ACCESS_DELETE_DESC" />
                 <action name="core.edit" title="JACTION_EDIT" description="COM_DIRECTMAIL_ACCESS_EDIT_DESC" />
 				<action name="core.edit.state" title="JACTION_EDITSTATE" description="COM_DIRECTMAIL_ACCESS_EDITSTATE_DESC" />
