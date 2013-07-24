@@ -68,6 +68,17 @@ class DirectmailModelDirectmails extends JModelList
         }
 		
 		protected function populateState($ordering = null, $direction = null) {
+			
+			$state = $this->getUserStateFromRequest($this->context.'.filter.state', 'filter_state', '', 'string');
+			$this->setState('filter.state', $state);
+
+			$categoryId = $this->getUserStateFromRequest($this->context.'.filter.category_id', 'filter_category_id', '');
+			$this->setState('filter.category_id', $categoryId);
+		
+			// Load the parameters.
+			$params = JComponentHelper::getParams('com_directmail');
+			$this->setState('params', $params);
+		
         	parent::populateState('name', 'ASC');
 		}
 }

@@ -89,6 +89,12 @@ class DirectmailViewDirectmails extends JViewLegacy{
 		{
 			JToolbarHelper::trash('directmails.trash');
 		}
+		
+		JHtmlSidebar::addFilter(
+			JText::_('JOPTION_SELECT_CATEGORY'),
+			'filter_category_id',
+			JHtml::_('select.options', JHtml::_('category.options', 'com_directmail'), 'value', 'text', $this->state->get('filter.category_id'))
+		);
 
 	}
 	
