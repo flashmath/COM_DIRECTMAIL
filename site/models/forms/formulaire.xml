@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset>
+		<field name="spacer" type="spacer" class="text"
+				label="COM_DIRECTMAIL_FORMULAIRE_REQUIRED"></field>
+		<field name="civilite" type="radio" class="text"
+				description="COM_DIRECTMAIL_CIVILITE_DESC"
+				label="COM_DIRECTMAIL_CIVILITE_LABEL">
+			<option value="0">COM_DIRECTMAIL_CIVILITE_M</option>
+			<option value="1">COM_DIRECTMAIL_CIVILITE_MME</option>
+		</field>				
+	</fieldset>
+</form>
