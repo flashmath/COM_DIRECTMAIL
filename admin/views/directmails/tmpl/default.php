@@ -126,12 +126,18 @@ if (!empty( $this->sidebar)) : ?>
 						</span>
 						<input type="text" style="display:none" name="order[]" size="5"
 							value="<?php echo $item->ordering;?>" class="width-20 text-area-order " />
+							<?php else : ?>
+						<span class="sortable-handler inactive" >
+							<i class="icon-menu"></i>
+						</span>
+					<?php endif; ?>
                         </td>
                         <td class="center hidden-phone">
 						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
                         <td class="center">
-						<?php echo JHtml::_('jgrid.published', $item->state, $i, 'directmail.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
+						<?php //echo JHtml::_('jgrid.published', $item->state, $i, 'directmail.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
+						<?php echo JHtml::_('jgrid.published', $item->state, $i, 'directmail.', $canChange, 'cb'); ?>
 					</td>
                         <td class="nowrap has-context">
 						<div class="pull-left">
