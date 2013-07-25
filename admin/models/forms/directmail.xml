@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset addfieldpath="/administrator/components/com_categories/models/fields">
+                <field
+                        name="id"
+                        type="text" default="0"
+						readonly="true" class="readonly"
+						label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC"
+                />
+                <field
+                        name="name"
+                        type="text"
+                        label="COM_DIRECTMAIL_DIRECTMAIL_NAME_LABEL"
+                        description="COM_DIRECTMAIL_DIRECTMAIL_NAME_DESC"
+                        size="25"
+                        class="inputbox"
+						required="true"
+                        default=""
+                />
+				<field
+                        name="answer"
+                        type="text"
+                        label="COM_DIRECTMAIL_DIRECTMAIL_ANSWER_LABEL"
+                        description="COM_DIRECTMAIL_DIRECTMAIL_ANSWER_DESC"
+                        size="40"
+                        class="inputbox"
+						required="true"
+                        default=""
+                />
+				<field
+                        name="email"
+                        type="email"
+                        label="COM_DIRECTMAIL_DIRECTMAIL_EMAIL_LABEL"
+                        description="COM_DIRECTMAIL_DIRECTMAIL_EMAIL_DESC"
+                        size="40"
+                        class="inputbox"
+						validate="email"
+						required="true"
+                        default=""
+                />
+				<field name="state" type="list" label="JSTATUS"
+					description="JFIELD_PUBLISHED_DESC" class="span12 small"
+					filter="intval" size="1" default="1"
+				>
+					<option value="1">
+						JPUBLISHED</option>
+					<option value="0">
+						JUNPUBLISHED</option>
+					<option value="2">
+						JARCHIVED</option>
+					<option value="-2">
+						JTRASHED</option>
+				</field>
+				<field name="catid" type="categoryedit" extension="com_directmail"
+					label="JCATEGORY" description="JFIELD_CATEGORY_DESC"
+					class="inputbox" required="true"					
+				>
+				</field>
+				<field name="ordering" type="ordering" class="inputbox"
+					label="JFIELD_ORDERING_LABEL" 
+					description="JFIELD_ORDERING_DESC"
+				>
+				</field>
+				<field name="checked_out" type="hidden" filter="unset" />
+
+				<field name="checked_out_time" type="hidden" filter="unset" />
+		
+        </fieldset>
+		<fieldset name="accesscontrol">
+        <field name="asset_id" type="hidden" filter="unset" />
+        <field name="rules"
+                type="rules"
+                label="JFIELD_RULES_LABEL"
+                translate_label="false"
+                filter="rules"
+                validate="rules"
+                class="inputbox"
+                component="com_directmail"
+                section="route"
+        />
+    </fieldset>
+</form>
