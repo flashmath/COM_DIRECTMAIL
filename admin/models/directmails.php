@@ -56,6 +56,26 @@ class DirectmailModelDirectmails extends JModelList
 		$query->select('c.title AS category_title')
 			->join('LEFT', '#__categories AS c ON c.id = a.catid');
 				
+						
+				// Filter by published state
+				$published = $this->getState('filter.state');
+				if (is_numeric($published))
+				{
+					$query->where('a.state = ' . (int) $published);
+				}
+				elseif ($published === '')
+				{
+					$query->where('(a.state IN (0, 1))');
+				}
+				
+				
+				// Filter by category.
+				$categoryId = $this->getState('filter.category_id');
+				if (is_numeric($categoryId))
+				{
+					$query->where('a.catid = ' . (int) $categoryId);
+				}
+				
 				// Add the list ordering clause.
 				$orderCol = $this->state->get('list.ordering', 'ordering');
 				$orderDirn = $this->state->get('list.direction', 'ASC');

@@ -56,6 +56,11 @@
 					class="inputbox" required="true"					
 				>
 				</field>
+				<field name="ordering" type="ordering" class="inputbox"
+					label="JFIELD_ORDERING_LABEL" 
+					description="JFIELD_ORDERING_DESC"
+				>
+				</field>
 				<field name="checked_out" type="hidden" filter="unset" />
 
 				<field name="checked_out_time" type="hidden" filter="unset" />

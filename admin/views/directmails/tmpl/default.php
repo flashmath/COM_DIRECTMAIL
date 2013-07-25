@@ -17,7 +17,7 @@ $user		= JFactory::getUser();
 $userId		= $user->get('id');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
-
+$saveOrder	= $listOrder == 'ordering';
 $sortFields = $this->getSortFields();
 ?>
 <script type="text/javascript">
@@ -112,8 +112,15 @@ if (!empty( $this->sidebar)) : ?>
 					$canCheckin = $user->authorise('core.manage',     'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
 					$canChange  = $user->authorise('core.edit.state', 'com_directmail.category.' . $item->catid) && $canCheckin;
 				?>
-                	<tr class="row<?php echo $i % 2; ?>">
+                	<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
                     	<td class="order nowrap center hidden-phone">
+                    	<?php if ($canChange) :
+						$disableClassName = '';
+						$disabledLabel	  = '';
+						if (!$saveOrder) :
+							$disabledLabel    = JText::_('JORDERINGDISABLED');
+							$disableClassName = 'inactive tip-top';
+						endif; ?>
                         	<span class="sortable-handler hasTooltip <?php echo $disableClassName?>" title="<?php echo $disabledLabel?>">
 							<i class="icon-menu"></i>
 						</span>
