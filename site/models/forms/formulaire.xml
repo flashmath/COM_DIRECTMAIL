@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-	<fieldset>
+	<fieldset name="default">
 		<field name="spacer" type="spacer" class="text"
 				label="COM_DIRECTMAIL_FORMULAIRE_REQUIRED"></field>
 		<field name="civilite" type="radio" class="text"

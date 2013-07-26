@@ -24,6 +24,8 @@ class DirectmailViewDirectmail extends JViewLegacy
 					return false;
 				}
 				
+				$this->pageclass_sfx = htmlspecialchars($this->params->get('pageclass_sfx'));
+				
                 // Display the view
                 parent::display($tpl);
         }

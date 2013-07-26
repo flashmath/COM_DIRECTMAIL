@@ -28,6 +28,14 @@ class DirectMailController extends JControllerLegacy
 			}
 		}
 		
+		$view->setModel($model, true);
+		$view->setLayout($lName);
+		
+		// Push document object into the view.
+		$view->document = $document;
+		
+		$view->display();
+		
 	}
 }
 ?>
