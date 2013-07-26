@@ -36,6 +36,8 @@
 		   <filename>directmail.php</filename>
 		   <filename>controller.php</filename>
 		   <folder>views</folder>
+		   <folder>controllers</folder>
+		   <folder>models</folder>
 		</files>
  
         <administration>
