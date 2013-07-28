@@ -8,6 +8,31 @@
 				label="COM_DIRECTMAIL_CIVILITE_LABEL">
 			<option value="0">COM_DIRECTMAIL_CIVILITE_M</option>
 			<option value="1">COM_DIRECTMAIL_CIVILITE_MME</option>
-		</field>				
+		</field>
+		<field name="nom" type="text" class="text"
+			description="COM_DIRECTMAIL_NAME_DESC"
+			label="COM_DIRECTMAIL_NAME_LABEL"
+			required="true">
+		</field>
+		<field name="prenom" class="text" type="text" required="true"
+			description="COM_DIRECTMAIL_FIRSTNAME_DESC" label="COM_DIRECTMAIL_FIRSTNAME_LABEL">
+		</field>
+		<field name="child" class="text" type="text" required="false"
+			description="COM_DIRECTMAIL_FIELD_CHILD_DESC" label="COM_DIRECTMAIL_FIELD_CHILD_LABEL">
+		</field>
+		<field type="text" class="text" name="tel" required="false"
+			description="COM_DIRECTMAIL_TEL_DESC" label="COM_DIRECTMAIL_TEL_LABEL">
+		</field>
+		<field class="validate-email" name="email" required="true" type="email"
+			description="COM_DIRECTMAIL_MAIL_DESC" label="COM_DIRECTMAIL_MAIL_LABEL">
+		</field>
+		<field class="text" type="question" name="question"
+			required="true" description="COM_DIRECTMAIL_FIELD_QUESTION_DESC"
+			label="COM_DIRECTMAIL_FIELD_QUESTION_LABEL">
+		</field>
+		<field name="message" type="textarea" class="text"
+			required="true" description="COM_DIRECTMAIL_MESSAGE_DESC" label="COM_DIRECTMAIL_MESSAGE_LABEL">
+		</field>
+
 	</fieldset>
 </form>
