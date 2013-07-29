@@ -25,7 +25,7 @@ JHtml::_('behavior.formvalidation');
 						<div class="control-label">
 							<?php echo $field->label; ?>
 								<?php if (!$field->required && $field->type != 'Spacer') : ?>
-									<span class="optional"><?php echo JText::_('COM_USERS_OPTIONAL');?></span>
+									<span class="optional"><?php echo JText::_('COM_DIRECTMAIL_OPTIONAL');?></span>
 								<?php endif; ?>
 						</div>
 						<div class="controls">
