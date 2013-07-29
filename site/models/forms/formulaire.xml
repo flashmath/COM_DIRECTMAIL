@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
+  <fields
+    name="default"
+    addfieldpath="/administrator/components/com_helloworld/models/fields"
+    >
 	<fieldset name="default">
 		<field name="spacer" type="spacer" class="text"
 				label="COM_DIRECTMAIL_FORMULAIRE_REQUIRED"></field>
@@ -35,4 +39,5 @@
 		</field>
 
 	</fieldset>
+  </fields>
 </form>

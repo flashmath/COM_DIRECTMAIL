@@ -18,6 +18,8 @@ defined('_JEXEC') or die;
  */
 class DirectmailModelFormulaire extends JModelForm
 {
+	protected $data;
+	
 	public function getForm($data = array(), $loadData = true)
 	{
 		// Get the form.
