@@ -2,7 +2,7 @@
 <form>
   <fields
     name="default"
-    addfieldpath="/administrator/components/com_helloworld/models/fields"
+    addfieldpath="/administrator/components/com_directmail/models/fields"
     >
 	<fieldset name="default">
 		<field name="spacer" type="spacer" class="text"

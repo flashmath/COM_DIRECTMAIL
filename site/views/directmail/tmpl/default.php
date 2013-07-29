@@ -37,7 +37,7 @@ JHtml::_('behavior.formvalidation');
 		<?php endif; ?>
 	<?php endforeach; ?>
 	<div class="form-actions">
-			<button type="submit" class="btn btn-primary validate"><?php echo JText::_('JREGISTER');?></button>
+			<button type="submit" class="btn btn-primary validate"><?php echo JText::_('JSUBMIT');?></button>
 			<a class="btn" href="<?php echo JRoute::_('');?>" title="<?php echo JText::_('JCANCEL');?>"><?php echo JText::_('JCANCEL');?></a>
 			<input type="hidden" name="option" value="com_directmail" />
 			<input type="hidden" name="task" value="formulaire.submit" />

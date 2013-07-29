@@ -30,6 +30,7 @@ class JFormFieldQuestion extends JFormFieldList
 		$query = $db->getQuery(true);
 		$query->select('id,answer');
 		$query->from('#__directmail');
+		$query->where('state=1');
 		$db->setQuery((string)$query);
 		$messages = $db->loadObjectList();
 		$options = array();
