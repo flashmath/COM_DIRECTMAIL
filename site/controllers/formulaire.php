@@ -83,12 +83,11 @@ class DirectMailControllerFormulaire extends DirectMailController
 		}
 		
 		// Flush the data from the session.
-		$app->setUserState('com_directmail.directmail.data', null);
+		$app->setUserState('com_directmail.formulaire.data', null);
 		
 				
 		$this->setMessage(JText::_('COM_DIRECTMAIL_SEND_MAIL_COMPLETE'));
-		$this->setRedirect(JRoute::_('index.php?option=com_directmail',false));
-		//echo 'testOk';
+		$this->setRedirect('index.php');
 		return true;
 
 	}

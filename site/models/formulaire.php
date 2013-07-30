@@ -98,13 +98,30 @@ class DirectmailModelFormulaire extends JModelForm
 		// Merge in the registration data.
 		foreach ($temp as $k => $v)
 		{
-			$data[$k] = $v; 
+			$data[$k] = $v;
 		}
 		
+		if ($data['default']['civilite']==0){
+			$civilite=JText::_('COM_DIRECTMAIL_CIVILITE_M');
+		}
+		else
+		{
+			$civilite=JText::_('COM_DIRECTMAIL_CIVILITE_MME');
+		}
+		
+		$sender=$civilite . ' ' . $data['default']['nom'] . ' ' .$data['default']['prenom'];
+		
+		$emailBody = JText::sprintf(
+				'COM_DIRECTMAIL_EMAIL_SEND_BODY',
+				$sender,
+				$data['default']['child'],
+				$data['default']['email'],
+				$data['default']['tel'],
+				$data['default']['message']);
 		$query=$db->getQuery(true);
 		$query->select('email, answer');
 		$query->from('#__directmail');
-		$query->where('id = ' . (int) $data['question']);
+		$query->where('id = ' . (int) $data['default']['question']);
 		
 		$db->setQuery($query);
 		
@@ -115,7 +132,7 @@ class DirectmailModelFormulaire extends JModelForm
 			return JError::raiseError(404, JText::_('COM_DIRECTMAIL_ERROR_DESTINATAIRE_NOT_FOUND'));
 		}
 		
-		$emailSubject = JText::_('COM_DIRECTMAIL_MAIL_SUBJECT') . '-' . $dest['answer'];		
+		$emailSubject = JText::_('COM_DIRECTMAIL_MAIL_SUBJECT') . '-' . $dest['answer'];
 		
 		$data['fromname'] = $config->get('fromname');
 		$data['mailfrom'] = $config->get('mailfrom');
@@ -123,8 +140,8 @@ class DirectmailModelFormulaire extends JModelForm
 		$data['siteurl'] = JUri::root();
 		
 		// Send the registration email.
-		//$return = JFactory::getMailer()->sendMail($data['mailfrom'], $data['fromname'], $dest['email'], $emailSubject, $data['message']);
-	$return=true;
+		$return = JFactory::getMailer()->sendMail($data['mailfrom'], $data['fromname'], $dest->email, $emailSubject, $data['default']['message']);
+		//$return=true;
 		if ($return !== true)
 		{
 			$this->setError(JText::_('COM_DIRECTMAIL_SEND_MAIL_FAILED'));
