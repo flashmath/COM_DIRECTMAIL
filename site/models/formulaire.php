@@ -32,6 +32,22 @@ class DirectmailModelFormulaire extends JModelForm
 		return $form;
 	}
 	
+	/**
+	 * Method to get the data that should be injected in the form.
+	 *
+	 * @return  mixed  The data for the form.
+	 *
+	 * @since   1.6
+	 */
+	protected function loadFormData()
+	{
+		$data = $this->getData();
+	
+		$this->preprocessData('com_directmail.formulaire', $data);
+	
+		return $data;
+	}
+	
 	protected function populateState()
 	{
 		// Get the application object.

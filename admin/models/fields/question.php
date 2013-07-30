@@ -6,7 +6,6 @@ defined('_JEXEC') or die;
 jimport('joomla.form.helper');
 JFormHelper::loadFieldClass('list');
 
-echo 'test';
 /**
  * Question Form Field class for the Directmail component
 */
