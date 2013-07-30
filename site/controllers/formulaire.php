@@ -22,7 +22,7 @@ class DirectMailControllerFormulaire extends DirectMailController
 {
 	public function submit()
 	{
-		/*
+		
 		// Check for request forgeries.
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 		
@@ -66,6 +66,7 @@ class DirectMailControllerFormulaire extends DirectMailController
 			return false;
 		}
 
+		/*
 		// Attempt to save the data.
 		$return	= $model->submit($data);
 		
@@ -98,11 +99,10 @@ class DirectMailControllerFormulaire extends DirectMailController
 			$this->setMessage(JText::_('COM_USERS_REGISTRATION_SAVE_SUCCESS'));
 			$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
 		}
-		
-		return true;
 		*/
-		echo 'testFormulaire';
-	    return true;
+		echo 'testOk';
+		return true;
+
 	}
 }
 ?>

@@ -28,7 +28,8 @@
 			description="COM_DIRECTMAIL_TEL_DESC" label="COM_DIRECTMAIL_TEL_LABEL">
 		</field>
 		<field class="validate-email" name="email" required="true" type="email"
-			description="COM_DIRECTMAIL_MAIL_DESC" label="COM_DIRECTMAIL_MAIL_LABEL">
+			description="COM_DIRECTMAIL_MAIL_DESC" label="COM_DIRECTMAIL_MAIL_LABEL"
+			validate="email">
 		</field>
 		<field class="text" type="question" name="question"
 			required="true" description="COM_DIRECTMAIL_FIELD_QUESTION_DESC"
