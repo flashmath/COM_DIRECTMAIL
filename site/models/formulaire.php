@@ -98,7 +98,7 @@ class DirectmailModelFormulaire extends JModelForm
 		// Merge in the registration data.
 		foreach ($temp as $k => $v)
 		{
-			$data[$k] = $v;
+			$data[$k] = $v; 
 		}
 		
 		$query=$db->getQuery(true);
