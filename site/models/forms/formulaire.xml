@@ -9,7 +9,8 @@
 				label="COM_DIRECTMAIL_FORMULAIRE_REQUIRED"></field>
 		<field name="civilite" type="radio" class="text"
 				description="COM_DIRECTMAIL_CIVILITE_DESC"
-				label="COM_DIRECTMAIL_CIVILITE_LABEL">
+				label="COM_DIRECTMAIL_CIVILITE_LABEL"
+				required="true">
 			<option value="0">COM_DIRECTMAIL_CIVILITE_M</option>
 			<option value="1">COM_DIRECTMAIL_CIVILITE_MME</option>
 		</field>
