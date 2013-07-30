@@ -101,10 +101,36 @@ class DirectmailModelFormulaire extends JModelForm
 			$data[$k] = $v;
 		}
 		
+		$query=$db->getQuery(true);
+		$query->select('email, answer');
+		$query->from('#__directmail');
+		$query->where('id = ' . (int) $data['question']);
+		
+		$db->setQuery($query);
+		
+		$dest = $db->loadObject();
+		
+		if (empty($dest))
+		{
+			return JError::raiseError(404, JText::_('COM_DIRECTMAIL_ERROR_DESTINATAIRE_NOT_FOUND'));
+		}
+		
+		$emailSubject = JText::_('COM_DIRECTMAIL_MAIL_SUBJECT') . '-' . $dest['answer'];		
+		
 		$data['fromname'] = $config->get('fromname');
 		$data['mailfrom'] = $config->get('mailfrom');
 		$data['sitename'] = $config->get('sitename');
 		$data['siteurl'] = JUri::root();
-	
+		
+		// Send the registration email.
+		//$return = JFactory::getMailer()->sendMail($data['mailfrom'], $data['fromname'], $dest['email'], $emailSubject, $data['message']);
+	$return=true;
+		if ($return !== true)
+		{
+			$this->setError(JText::_('COM_DIRECTMAIL_SEND_MAIL_FAILED'));
+			return false;
+		}
+		
+		return true;
 	}
 }

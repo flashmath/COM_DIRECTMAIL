@@ -27,7 +27,7 @@ class DirectMailControllerFormulaire extends DirectMailController
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 		
 		$app	= JFactory::getApplication();
-		$model	= $this->getModel('Formulaire', 'DirectMail');
+		$model	= $this->getModel('Formulaire', 'DirectMailModel');
 		
 		// Get the user data.
 		$requestData = $this->input->post->get('jform', array(), 'array');
@@ -66,7 +66,7 @@ class DirectMailControllerFormulaire extends DirectMailController
 			return false;
 		}
 
-		/*
+		
 		// Attempt to save the data.
 		$return	= $model->submit($data);
 		
@@ -74,7 +74,7 @@ class DirectMailControllerFormulaire extends DirectMailController
 		if ($return === false)
 		{
 			// Save the data in the session.
-			$app->setUserState('com_directmail.directmail.data', $data);
+			$app->setUserState('com_directmail.formulaire.data', $data);
 		
 			// Redirect back to the edit screen.
 			$this->setMessage(JText::sprintf('COM_USERS_REGISTRATION_SAVE_FAILED', $model->getError()), 'warning');
@@ -85,22 +85,10 @@ class DirectMailControllerFormulaire extends DirectMailController
 		// Flush the data from the session.
 		$app->setUserState('com_directmail.directmail.data', null);
 		
-		// Redirect to the profile screen.
-		if ($return === 'adminactivate'){
-			$this->setMessage(JText::_('COM_USERS_REGISTRATION_COMPLETE_VERIFY'));
-			$this->setRedirect(JRoute::_('index.php?option=com_users&view=registration&layout=complete', false));
-		} elseif ($return === 'useractivate')
-		{
-			$this->setMessage(JText::_('COM_USERS_REGISTRATION_COMPLETE_ACTIVATE'));
-			$this->setRedirect(JRoute::_('index.php?option=com_users&view=registration&layout=complete', false));
-		}
-		else
-		{
-			$this->setMessage(JText::_('COM_USERS_REGISTRATION_SAVE_SUCCESS'));
-			$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
-		}
-		*/
-		echo 'testOk';
+				
+		$this->setMessage(JText::_('COM_DIRECTMAIL_SEND_MAIL_COMPLETE'));
+		$this->setRedirect(JRoute::_('index.php?option=com_directmail',false));
+		//echo 'testOk';
 		return true;
 
 	}
