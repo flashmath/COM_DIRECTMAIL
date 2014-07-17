@@ -6,6 +6,7 @@ CREATE TABLE `#__directmail` (
   `name` varchar(25) NOT NULL,
   `answer` varchar(255) NOT NULL DEFAULT '',
   `email` varchar(255) NOT NULL DEFAULT '',
+  `info` INTEGER NOT NULL default 0,
   `ordering` INTEGER NOT NULL DEFAULT 0,
   `catid` int(11) NOT NULL DEFAULT '0',
   `checked_out` INTEGER UNSIGNED NOT NULL default '0',

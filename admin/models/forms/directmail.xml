@@ -38,6 +38,15 @@
 						required="true"
                         default=""
                 />
+				<field 
+						name="info" 
+						type="radio" 
+						default="0" 
+						label="COM_DIRECTMAIL_INFO_LABEL" 
+						description="COM_DIRECTMAIL_INFO_DESC">
+						  <option value="0">COM_DIRECTMAIL_INFO1</option>
+						  <option value="1">COM_DIRECTMAIL_INFO2</option>
+				</field>
 				<field name="state" type="list" label="JSTATUS"
 					description="JFIELD_PUBLISHED_DESC" class="span12 small"
 					filter="intval" size="1" default="1"

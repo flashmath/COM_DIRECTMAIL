@@ -66,7 +66,7 @@ class DirectMailTableDirectMail extends JTable
 			 *         
 			 * @return      int        
 			 */        
-			 protected function _getAssetParentId($table = NULL, $id = NULL)        
+			 protected function _getAssetParentId(JTable $table = NULL, $id = NULL)        
 			 {                
 			    // We will retrieve the parent-asset from the Asset-table
 				$assetParent = JTable::getInstance('Asset');                
