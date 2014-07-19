@@ -1,0 +1,1 @@
+ALTER TABLE `#__directmail` ADD `info` INTEGER NOT NULL default 0;
